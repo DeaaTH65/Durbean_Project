@@ -37,17 +37,22 @@
                 </li>
               {% endif %}
             </ul>
-            <ul class="nav justify-content-end">
+            
+            {% if user.is_authenticated %}
+              <ul class="nav justify-content-end">
                 <li class="nav-item">
                   <a class="nav-link active" aria-current="page" href="#">
                   {% if user.photo %}
                     <img src="{{user.photo.url}}" class="rounded-circle" width=50 height=35 />
                   {% else %}
-                    <img src="{% static 'images/default_profile_pic.png' %}" class="rounded-circle" width=50 height=35 />
+                    <img src="" class="rounded-circle" width=50 height=35 />
                   {% endif %}                 
                   </a>
                 </li>
-            </ul>
+              </ul>           
+            {% else %}
+              Login
+            {% endif %}      
           </div>
         </div>
     </nav>

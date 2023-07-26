@@ -1,32 +1,42 @@
 {% extends "base.html" %}
 
+
+{% load static %}
 {% block content %}
 <br/>
-<div class="container-fluid">
-    <h1 align="center" class="bg-primary"> {{ user.name }} </h1>
-    <div class="row">
-        <div class="col-sm-6">
-          <div class="card">
-            <div class="card-body">
-                <img src="{{ user.photo.url }}" alt="{{ user.name }}" class="card-img-top" height="550" />
-            </div>
-          </div>
-        </div>
-
-        <div class="col-sm-6 card text-dark bg-info">
-            <br/>
-            <div class="card text-black bg-light mb-3">
-                <div class="card-header bg-secondary"><h3>{{user.name}}</h3></div>
+{% if user.is_authenticated %}
+    <div class="container-fluid">
+        <h1 align="center" class="bg-primary"> {{ user.name }} </h1>
+        <div class="row">
+            <div class="col-sm-6">
+            <div class="card">
                 <div class="card-body">
-                <h5 class="card-title">{{user.email}}</h5>
-                <hr/>
-                <p><button class="btn btn-info">{{user.phone}}</button></p>                               
+                    <img src="{{ user.photo.url }}" alt="{{ user.name }}" class="card-img-top" height="550" />
                 </div>
-                <div class="card-body bg-primary"><p>Social: {{ user.profile.social_link }}</p></div>
-            </div>          
-            <p>Joined : {{ user.date_joined|timesince }} ago </p>
+            </div>
+            </div>
+
+            <div class="col-sm-6 card text-dark bg-info">
+                <br/>
+                <div class="card text-black bg-light mb-3">
+                    <div class="card-header bg-secondary"><h3>{{user.name}}</h3></div>
+                    <div class="card-body">
+                    <h5 class="card-title">{{user.email}}</h5>
+                    <hr/>
+                    <p><button class="btn btn-info">{{user.phone}}</button></p>                               
+                    </div>
+                    <div class="card-body bg-primary"><p>Social: {{ user.profile.social_link }}</p></div>
+                </div>          
+                <p>Joined : {{ user.date_joined|timesince }} ago </p>
+            </div>
         </div>
     </div>
-</div>
 
+{% else %}
+    <h1 align="center" class="bg-danger">
+         Hello Anonymous User. Take Action!!
+        <br/><br/>
+        <img src="{% static 'images/gow.jpg' %}" class="center" width=1100 height=550 />    
+    </h1>
+{% endif %}
 {% endblock content %}

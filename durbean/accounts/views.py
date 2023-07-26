@@ -1,4 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.models import User
 from django.contrib import messages
 
 
@@ -12,7 +14,9 @@ def loginPage(request):
 
 
 def logoutUser(request):
-    pass
+    logout(request)
+    messages.success(request, ("You have been logged out.!"))
+    return redirect('home')
 
 
 def registerPage(request):
