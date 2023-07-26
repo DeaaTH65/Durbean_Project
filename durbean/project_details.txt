@@ -1,0 +1,11 @@
+Django Task:
+
+Develop a Django Rest Framework (DRF) project to create API views that allow users to register, login, and logout using JWT Token authentication. The project should include endpoints for obtaining and refreshing tokens. The tokens should have a short lifespan, expiring every 5 minutes.
+To create the user model, you should utilize Django's AbstractUser to extend the default User model. Additionally, implement a custom model manager for the user model.
+The user model should consist of the following fields:
+• Name
+• Email
+• Phone number
+• Photo
+An added bonus would be to enable users to log in using their phone numbers as credentials instead of the username.
+Please ensure your completed Django project is uploaded to a GitHub repository along with a requirement.txt file. Once you have done so, provide the link to the repository in the designated
