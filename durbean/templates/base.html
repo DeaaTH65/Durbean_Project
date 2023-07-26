@@ -40,7 +40,7 @@
             <ul class="nav justify-content-end">
                 <li class="nav-item">
                   <a class="nav-link active" aria-current="page" href="#">
-                  {% if user.photo %}
+                  {% if CustomUser.photo %}
                     <img src="user.photo.url" class="rounded-circle" width=50 height=35 />
                   {% else %}
                     <img src="{% static 'images/default_profile_pic.png' %}" class="rounded-circle" width=50 height=35 />
