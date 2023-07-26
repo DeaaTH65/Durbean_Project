@@ -31,7 +31,7 @@ class CustomUser(AbstractUser):
     phone = models.CharField(unique=True, max_length=20)
     photo = models.ImageField(upload_to='user_photos/', null=True, blank=True)
 
-    # Additional fields if needed
+    # Additional fields
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
     date_joined = models.DateTimeField(auto_now_add=True)
