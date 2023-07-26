@@ -11,7 +11,12 @@
             <div class="col-sm-6">
             <div class="card">
                 <div class="card-body">
-                    <img src="{{ user.photo.url }}" alt="{{ user.name }}" class="card-img-top" height="550" />
+                    {% if user.photo %}
+                        <img src="{{ user.photo.url }}" alt="{{ user.name }}" class="card-img-top" height="550" />
+                    {% else %}
+                        <img src="{% static 'images/default_profile_pic.png' %}" class="rounded-circle" height=550 />
+                    {% endif %} 
+                    
                 </div>
             </div>
             </div>
